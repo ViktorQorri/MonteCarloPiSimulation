@@ -3,12 +3,16 @@ import random as rd
 import matplotlib.pyplot as plt
 
 #Variables
-cycles = 1000 #set this number for the precision
+cycles = 10000000 #set this number for the precision
+plotcycles = 10000 #max 10.000 is recomended, gets calculated automaticaly if cycles < 10.000
 inside = 0
 estimation = 0
 xpoints = []
 ypoints = []
 pointcolors = []
+
+if cycles < plotcycles:
+    plotcycles = cycles
 
 #Functions
 def calcInside(x,y):
@@ -27,7 +31,7 @@ def calcPi():
 
 
 #Main
-for cycle in range(cycles):
+for cycle in range(plotcycles):
     x = rd.random()
     y = rd.random()
     xpoints.append(x)
@@ -37,6 +41,12 @@ for cycle in range(cycles):
         pointcolors.append("green")
     else:
         pointcolors.append("red")
+
+for cycle in range(cycles - plotcycles):
+    x = rd.random()
+    y = rd.random()
+    if calcInside(x,y):
+        inside += 1
 
 calcPi()
 print(estimation)
