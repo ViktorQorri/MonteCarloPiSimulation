@@ -1,10 +1,13 @@
 #Imports
 import random as rd
+import matplotlib.pyplot as plt
 
 #Variables
-cycles = 10000000 #set this number for the precision
+cycles = 10 #set this number for the precision
 inside = 0
 estimation = 0
+xpoints = []
+ypoints = []
 
 #Functions
 def calcInside(x,y):
@@ -26,7 +29,11 @@ def calcPi():
 for cycle in range(cycles):
     x = rd.random()
     y = rd.random()
+    xpoints.append(x)
+    ypoints.append(y)
     calcInside(x,y)
 
+plt.plot(xpoints,ypoints,'.')
+plt.show()
 calcPi()
 print(estimation)
