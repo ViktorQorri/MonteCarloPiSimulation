@@ -50,5 +50,6 @@ for cycle in range(cycles - plotcycles):
 
 calcPi()
 print(estimation)
+plt.gca().set_aspect('equal') #Plot aspect ratio set to "equal" (1:1 aspect)
 plt.scatter(xpoints,ypoints,c=pointcolors)
 plt.show()
