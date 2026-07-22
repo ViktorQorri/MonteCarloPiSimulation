@@ -3,7 +3,7 @@ import random as rd
 import matplotlib.pyplot as plt
 
 #Variables
-cycles = 10 #set this number for the precision
+cycles = 1000 #set this number for the precision
 inside = 0
 estimation = 0
 xpoints = []
@@ -33,7 +33,7 @@ for cycle in range(cycles):
     ypoints.append(y)
     calcInside(x,y)
 
-plt.plot(xpoints,ypoints,'.')
-plt.show()
 calcPi()
 print(estimation)
+plt.scatter(xpoints,ypoints)
+plt.show()
