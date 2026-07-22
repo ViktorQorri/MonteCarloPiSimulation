@@ -8,15 +8,16 @@ inside = 0
 estimation = 0
 xpoints = []
 ypoints = []
+pointcolors = []
 
 #Functions
 def calcInside(x,y):
     global cycles
     global inside
     if pow(x,2) + pow(y,2) <= 1:
-        inside += 1
+        return True
     else:
-        return
+        return False
 
 def calcPi():
     global inside
@@ -31,9 +32,13 @@ for cycle in range(cycles):
     y = rd.random()
     xpoints.append(x)
     ypoints.append(y)
-    calcInside(x,y)
+    if calcInside(x,y):
+        inside += 1
+        pointcolors.append("green")
+    else:
+        pointcolors.append("red")
 
 calcPi()
 print(estimation)
-plt.scatter(xpoints,ypoints)
+plt.scatter(xpoints,ypoints,c=pointcolors)
 plt.show()
